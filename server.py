@@ -41,7 +41,7 @@ class CakeGame(object):
 
   def get_status(self):
     if self.state == 'waiting':
-      if last_resetter:
+      if self.last_resetter:
         return '%s reset the game. Waiting to for players...' % (self.last_resetter,)
       return 'Waiting to for players...'
     elif self.state == 'cut':
