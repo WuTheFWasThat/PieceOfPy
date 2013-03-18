@@ -3,18 +3,41 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
       $('#text_submit').click(function(ev) {
-        ev.preventDefault();
-        console.log('asdf')
-        $.post('/do_command', $('#text_box').val(), function(data) {
+        console.log('here')
+        console.log($('#text_box').val())
+        $.post('do_command', $('#text_box').val(), function(data) {
           console.log(data)
           var dict = JSON.parse(data);
           $('#text_output').html($('<div>').text(dict.result))
         });
+        ev.preventDefault();
       });
     </script>
+
+    <script>
+      $(document).ready(function() {
+        var colors = [null, null, null, '#FF99CC', '#FF3333']
+        var context = document.getElementById('drawing').getContext('2d');
+        var radius = $('#drawing').height() / 2;
+        var i = 0;
+        var amount = 3;
+
+        context.font = "bold 12px sans-serif";
+        context.fillText(amount, );
+
+        context.fillStyle= colors[amount];
+        context.strokeStyle= colors[amount];
+        context.moveTo(radius,radius);
+        context.arc(radius,radius,radius, 2 * Math.PI * i / 11, 2 * Math.PI * (i + 1) / 11);
+        context.lineTo(radius,radius);
+        context.fill(); // or context.fill()
+      });
+    </script>
+
   </head>
 
   <body>
+    <canvas id="drawing" width="500" height="500"></canvas>
     <div id="text_output">
     </div>
     <input id="text_box" type="textarea">
