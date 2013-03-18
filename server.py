@@ -48,7 +48,7 @@ class CakeServer(object):
       name = command[1]
       if self.game.add_player(name):
         return self.return_value('You joined the game as %s.' % (name,), name)
-      return self.return_value('Someone else is playing under that name.')
+      return self.return_value('You are now playing as %s.' % (name,), name)
 
   def tokenize(self, s):
     tokens = s.split()
