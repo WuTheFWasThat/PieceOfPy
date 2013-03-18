@@ -42,8 +42,8 @@ class CakeGame(object):
   def get_status(self):
     if self.state == 'waiting':
       if self.last_resetter:
-        return '%s reset the game. Waiting to for players...' % (self.last_resetter,)
-      return 'Waiting to for players...'
+        return '%s reset the game. Waiting for players...' % (self.last_resetter,)
+      return 'Waiting for players...'
     elif self.state == 'cut':
       return "It is %s's turn to cut the cake." % (self.cur_player,)
 
