@@ -14,7 +14,7 @@ class CakeGame(object):
   def add_player(self, name):
     if name not in self.players:
       self.players[name] = {
-        'points': 0
+        'points': 0,
         'slices': []
       }
       return '%s joined the game' % (name,)

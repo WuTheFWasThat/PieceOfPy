@@ -1,9 +1,22 @@
 <html>
   <head>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script text="src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+      $('#text_submit').submit(function() {
+        $.post('/do_command', $('#text_box').val(), function(data) {
+          var dict = JSON.parse(data);
+          $('#text_output').append($('<div>' + dict.result + '</div>'))
+        });
+      });
+    </script>
   </head>
 
   <body>
-    Hello world!
+    <div id="text_output">
+    </div>
+    <form id="text_form">
+      <input id="text_box" type="textarea"></input>
+      <input id="text_submit" type="submit" value="Submit"></input>
+    </form>
   </body>
 </html>
