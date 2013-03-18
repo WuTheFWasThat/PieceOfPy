@@ -65,7 +65,7 @@ class CakeServer(object):
     elif command[0] == 'reset':
       if len(command) != 1:
         return self.return_value('Usage: reset')
-      self.game = CakeGame('%s reset the game. Waiting for players...' % (name,))
+      self.game = CakeGame(name)
       return self.return_value('Reset the game.')
     elif command[0] == 'join':
       if len(command) != 2:
