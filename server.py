@@ -3,7 +3,7 @@ import random
 import sys
 
 slice_types = [3, 4, 5, 7, 8, 9, 10, 11]
-cake_slices = sum(type*[type] for type in slice_types, [])
+cake_slices = sum((type*[type] for type in slice_types), [])
 num_slices = 55
 
 class CakeGame(object):
