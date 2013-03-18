@@ -1,6 +1,7 @@
 <html>
   <head>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     </script>
     <script src="script.js"></script>
     <style>
@@ -12,8 +13,11 @@
   </head>
 
   <body onload="onload()">
-    <canvas id="drawing" width="200" height="200"></canvas>
+    <div id="drawing" style="display:block; width:200px; height:200px"></div>
+
     <table id="game_state" style="border:1px solid black;"></table>
+    <div id="game_status"></div>
+
 
     <input id="command_input" type="text">
     <button id="submit_command">Submit</button>
