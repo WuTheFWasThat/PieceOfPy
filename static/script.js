@@ -21,8 +21,8 @@ function submit_command() {
       var response = JSON.parse(json);
       $('#command_input').val('');
       $('#command_output').text(response.result);
-      if (result.name) {
-        name = result.name;
+      if (response.name) {
+        name = response.name;
       }
     }
   );
