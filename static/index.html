@@ -1,23 +1,12 @@
 <html>
   <head>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script>
-      $('#text_submit').click(function(ev) {
-        ev.preventDefault();
-        console.log('asdf')
-        $.post('/do_command', $('#text_box').val(), function(data) {
-          console.log(data)
-          var dict = JSON.parse(data);
-          $('#text_output').html($('<div>').text(dict.result))
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </head>
 
-  <body>
-    <div id="text_output">
-    </div>
-    <input id="text_box" type="textarea">
-    <button id="text_submit">Submit</button>
+  <body onload="onload()">
+    <input id="command_input" type="text">
+    <button id="submit_command">Submit</button>
+    <div id="command_output"></div>
   </body>
 </html>

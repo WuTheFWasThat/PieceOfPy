@@ -1,4 +1,5 @@
 import cherrypy
+import json
 import random
 import sys
 
@@ -24,9 +25,9 @@ class CakeServer(object):
   @cherrypy.expose
   def do_command(self, command):
     print command
-    return {
+    return json.dumps({
       'result': command
-    }
+    })
 
 if not sys.flags.interactive:
   cherrypy.quickstart(CakeServer(), '/', 'server.conf')
