@@ -77,12 +77,12 @@ class CakeServer(object):
     elif command[0] == 'start':
       if len(command) != 1:
         return self.return_value('Usage: start')
-      if self.game.start(name):
+      if self.game.start():
         return self.return_value('Started game!')
       if len(self.game.players) < 2:
         return self.return_value('Need two or more players to start a game.')
       return self.return_value('This game has already been started.')
-    return self.return_value('Unexpected command %s.' % (command[0],))
+    return self.return_value('Unexpected command %s.  Should be one of "reset", "join <username>" or "start"' % (command[0],))
 
   def tokenize(self, s):
     tokens = s.split()

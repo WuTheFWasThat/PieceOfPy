@@ -70,7 +70,7 @@ function update_game_state(game_state) {
   }
 }
 
-var colors = [null, null, null, '#FF99CC', '#FF3333', '#FFB266', null, '#FFFF99', '#00CC66', '#6666FF', '#990099', '']
+var colors = [null, null, null, '#FF99CC', '#FF6666', '#FFB266', null, '#FFFF99', '#00CC66', '#3399FF', '#6666FF', '#9933FF']
 
 function draw_slice(position, type) {
   var canvas = $('<canvas></canvas>')
@@ -81,17 +81,19 @@ function draw_slice(position, type) {
 
   var context = canvas[0].getContext('2d');
   var radius = 75;
-  context.font = "bold 12px sans-serif";
-  context.fillText(type, 100, 100);
 
-  console.log(colors[type])
   context.fillStyle= colors[type];
-  context.strokeStyle= colors[type];
   context.beginPath();
   context.moveTo(radius,radius);
   context.arc(radius,radius,radius, 2 * Math.PI * position / 11, 2 * Math.PI * (position + 1) / 11);
   context.lineTo(radius,radius);
   context.fill(); // or context.fill()
+
+  context.fillStyle= '#000000';
+  context.font = "bold 10px sans-serif";
+  var x = radius + radius * Math.sin(- 2 * Math.PI * (position + 0.5) / 11 + Math.PI / 2) * 0.75;
+  var y = radius + radius * Math.cos(- 2 * Math.PI * (position + 0.5) / 11 + Math.PI / 2) * 0.75;
+  context.fillText(type, x, y);
 }
 
 $(document).ready(function() {
